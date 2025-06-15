@@ -48,17 +48,22 @@ useEffect(() => {
         <div className='flex items-center gap-6'>
             {showSearchButton?<img src={assets.search_icon} className='w-5 cursor-pointer' alt="" onClick={()=>setShowSearch(true)}/>:null}
             <div className='group relative'>
-                <Link to='/login'><img src={assets.profile_icon} className='w-5 cursor-pointer' alt="" /></Link>
-                <div onClick={token?null: navigate('/login')} className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
-                {token&&
-                    <div className='flex flex-col gap-2 w-36 py-5 px-5 bg-slate-100 text-gray-500 rounded'>
-                        <p className='cursor-pointer hover:text-black'>My Profile</p>
-                        <p className='cursor-pointer hover:text-black' onClick={()=>navigate('/orders')}>Orders</p>
-                        <p className='cursor-pointer hover:text-black' onClick={logout}>Logout</p>
-                    </div>
-                }
-                </div>
-            </div>
+  <img src={assets.profile_icon} className='w-5 cursor-pointer' alt="Profile" />
+  <div 
+    onClick={() => {
+      if (!token) navigate('/login');
+    }} 
+    className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'
+  >
+    {token && (
+      <div className='flex flex-col gap-2 w-36 py-5 px-5 bg-slate-100 text-gray-500 rounded'>
+        <p className='cursor-pointer hover:text-black'>My Profile</p>
+        <p className='cursor-pointer hover:text-black' onClick={() => navigate('/orders')}>Orders</p>
+        <p className='cursor-pointer hover:text-black' onClick={logout}>Logout</p>
+      </div>
+    )}
+  </div>
+</div>
             <Link to='/cart' className='relative'>
                 <img src={assets.cart_icon} className='w-5 min-w-5' alt="" />
                 <p className='absolute right-[-5px] bottom-[-8px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>{getCartCount()}</p>
