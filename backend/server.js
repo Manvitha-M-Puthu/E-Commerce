@@ -15,7 +15,10 @@ connectCloudinary();
 
 //Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://e-commerce-frontend-xi-jade.vercel.app',
+  credentials: true
+}));
 
 //API Endpoints
 app.use('/api/user', userRouter);
