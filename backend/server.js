@@ -22,7 +22,8 @@ app.use('/api/user', userRouter);
 app.use('/api/product', productRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRoute)
+app.get('/', (req, res) => {
+    res.send('API is running...');
+});
 
-app.listen(PORT, ()=>{
-    console.log("Server is Listening on port"+ PORT);
-})
+export default app;
