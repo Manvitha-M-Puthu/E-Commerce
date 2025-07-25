@@ -16,7 +16,7 @@ connectCloudinary();
 //Middlewares
 app.use(express.json());
 app.use(cors({
-  origin: 'https://e-commerce-frontend-xi-jade.vercel.app',
+  origin: 'https://e-commerce-manvitha.vercel.app/',
   credentials: true
 }));
 
