@@ -13,7 +13,6 @@ const PORT = process.env.PORT;
 connectDB();
 connectCloudinary();
 
-const cors = require('cors');
 
 const allowedOrigins = [
   'https://e-commerce-frontend-xi-jade.vercel.app',
