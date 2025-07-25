@@ -9,7 +9,7 @@ import cartRouter from './routes/cartRoute.js';
 import orderRoute from './routes/orderRoute.js'
 //App config
 const app = express();
-const PORT = process.env.PORT||4000;
+const PORT = process.env.PORT;
 connectDB();
 connectCloudinary();
 
@@ -25,5 +25,7 @@ app.use('/api/order', orderRoute)
 app.get('/', (req, res) => {
     res.send('API is running...');
 });
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);});
 
 export default app;
